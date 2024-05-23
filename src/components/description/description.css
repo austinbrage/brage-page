@@ -1,0 +1,80 @@
+.description-container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+.description-arrow-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+    z-index: 10;
+}
+
+.description span,
+.description-arrow-btns span {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 50%;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.description-body > p:first-child {
+    font-family: "Poetsen One", sans-serif;
+    margin: 10px 0 15px 0;
+}
+
+.description-body > p:nth-child(3) {
+    font-style: italic;
+}
+
+.description-body > p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.description-body {
+    width: 90%;
+    background: rgba(0, 0, 0, 0.65);
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    font-size: 20px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 12px;
+    opacity: 0.9;
+}
+
+.description-body-images {
+    margin-top: 10px;
+}
+
+.description-body-images img {
+    max-width: 90%;
+}
+
+
+.description-body.close-description {
+    height: 0;
+    overflow-y: none;
+}
+.description-body.shrink-description {
+    height: 120px;
+    overflow-y: none;
+}
+.description-body.full-description {
+    height: 50vh;
+    overflow-y: scroll;
+}

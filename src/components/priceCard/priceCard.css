@@ -1,0 +1,120 @@
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.price-container-card {
+    width: 90%;
+    height: 120px;
+    padding: 50px;
+    /* background: rgba(255, 255, 255, 0.08); */
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-container-card > h5 {
+    font-size: 24px;
+    position: absolute;
+    top: -16px;
+    left: 24px;
+    opacity: 0.8;
+    letter-spacing: 0.1rem;
+    font-family: "Poetsen One", sans-serif;
+}
+
+.price-container-card-feats {
+  width: 50%;
+  display: grid;
+  margin-top: 55px;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 0;
+}
+
+.price-container-card-feats-item {
+  /* background-color: red; */
+  width: max-content;
+  margin: 0;
+  /* margin-top: 10px; */
+  padding: 0 16px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: rgba(209, 202, 202, 0.853);
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.price-container-card-feats-item > p {
+  cursor: pointer;
+}
+
+.price-container-card-feats-item:nth-child(3) > *,
+.price-container-card-feats-item:nth-child(4) > * {
+  transform: translateY(-10px);
+}
+
+.price-container-card-feats-item:nth-child(5) > *,
+.price-container-card-feats-item:nth-child(6) > * {
+  transform: translateY(-20px);
+}
+
+.price-container-card-feats-item .check-mark {
+  font-size: 24px;
+  color: #28a745;
+  opacity: 0.8;
+}
+
+.price-container-card-feats-item .cancel-mark {
+  font-size: 24px;
+  color: #dc3545;
+  opacity: 0.8;
+}
+
+.price-container-card-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  height: 80%;
+  /* background-color: red; */
+
+}
+
+.price-container-card-action > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+
+.price-container-card-action-number {
+  font-size: 30px;
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 0.1rem;
+  font-family: "Poetsen One", sans-serif;
+}
+
+.price-container-card-action-description {
+  font-size: 16px;
+  letter-spacing: 0.025rem;
+  font-style: italic;
+  margin: 0;
+  opacity: 0.5;
+}
