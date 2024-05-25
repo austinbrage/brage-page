@@ -3,7 +3,7 @@ import './contact.css'
 export function ContactSection() {
 
     return (
-        <div className="contact-section">
+        <div id='contact-section' className="contact-section">
             <h4>
                 <span className='wrapper-gold'>
                     <div className="bg"> Send me a message</div>

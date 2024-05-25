@@ -7,23 +7,23 @@ import './hero.css'
 
 export function HeroSection() {
     return (
-        <div className='hero-section'>
+        <div id='hero-section' className='hero-section'>
             <div className='hero-container'>
                 <nav className='hero-navbar'>
                     <h1 className='hero-navbar-title'>
                         BRAGE
                     </h1>
                     <div className='hero-navbar-link'>
-                        <a href="#">
+                        <a href="#hero-section">
                             Home
                         </a>
-                        <a href="#">
+                        <a href="#feat-section">
                             Feature
                         </a>
-                        <a href="#">
+                        <a href="#price-section">
                             Pricing
                         </a>
-                        <a href="#">
+                        <a href="#contact-section">
                             Support
                         </a>
                     </div>

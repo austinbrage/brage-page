@@ -4,7 +4,7 @@ import "./price.css"
 
 export function PriceSection() {
     return (
-        <section className="price-section">
+        <section id="price-section" className="price-section">
             <h4>
                 <span className='wrapper-gold'>
                     <div className="bg"> Several products</div>

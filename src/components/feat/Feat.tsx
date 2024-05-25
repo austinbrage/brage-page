@@ -11,7 +11,7 @@ export function FeatSection() {
     }, [])
 
     return (
-        <section className="feat-section">
+        <section id="feat-section" className="feat-section">
             <h3>
                 <span className='wrapper-gold'>
                     <div className="bg"> No ai, pure algorithm</div>
