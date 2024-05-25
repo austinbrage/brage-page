@@ -19,11 +19,10 @@
   width: 90%;
   height: 50px;
   margin-top: 50px;
-  /* background-color: red; */
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .feat-examples-menu > li {
@@ -33,16 +32,16 @@
   cursor: pointer;
   padding: 5px 20px 5px 20px;
   border-radius: 8px;
+  transition: none;
 }
 
-/* Menu effect */
-
-/* .feat-examples-menu > li.selected { */
-.feat-examples-menu > li:first-child {
+.feat-examples-menu > li.selected {
   color: #fff;
   background: rgba(0, 0, 0, 0.35);
   border: 2px solid rgba(0, 0, 0, 0.3);
-  /* backdrop-filter: blur(10px); */
+  transition: border .4.5s;
+  transition: color .5s;
+  transition: background .5s;
 }
 
 .feat-examples-titles {

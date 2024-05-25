@@ -23,7 +23,10 @@ export function FeatSection() {
                 <ul ref={examplesMenuRef} className="feat-examples-menu">
                     
                     {EXAMPLES_ITEMS.map(example => (
-                        <li onClick={() => setCurrentItem(example)}>
+                        <li 
+                            className={currentItem === example ? 'selected' : ''}
+                            onClick={() => setCurrentItem(example)}
+                        >
                             {example.name}
                         </li>
                     ))}
