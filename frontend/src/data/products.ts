@@ -79,7 +79,7 @@ function getFeatures(count: number) {
     }))
 }
 
-export const PRODUCTS: Products[] = [
+export const JAVASCRIPT_PRODUCTS: Products[] = [
     {
         name: 'Basic',
         price: 94.55,
@@ -101,6 +101,33 @@ export const PRODUCTS: Products[] = [
     {
         name: 'Fullstack generator',
         price: 184.55,
+        suitableFor: 'companies',
+        features: getFeatures(6)
+    },
+]
+
+export const TYPESCRIPT_PRODUCTS: Products[] = [
+    {
+        name: 'Basic (ts)',
+        price: 114.55,
+        suitableFor: 'beginners',
+        features: getFeatures(3)
+    },
+    {
+        name: 'SQL safer (ts)',
+        price: 144.55,
+        suitableFor: 'freelancers',
+        features: getFeatures(4)
+    },
+    {
+        name: 'Database generator (ts)',
+        price: 174.55,
+        suitableFor: 'freelancers',
+        features: getFeatures(5)
+    },
+    {
+        name: 'Fullstack generator (ts)',
+        price: 204.55,
         suitableFor: 'companies',
         features: getFeatures(6)
     },

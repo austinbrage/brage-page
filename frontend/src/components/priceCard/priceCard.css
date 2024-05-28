@@ -123,6 +123,12 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.price-container-card-action > button.notAvailable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
 .price-container-card-action-number {
   font-size: 30px;
   margin: 0;

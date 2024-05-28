@@ -7,6 +7,7 @@ import './priceCard.css'
 
 export function PriceCard({ products }: { products: Products[] }) {
 
+    const unavailableProducts = ['Basic (ts)', 'SQL safer (ts)', 'Database generator (ts)', 'Fullstack generator (ts)']
     const { updateCurrentFeat } = useContext(FeaturesContext)
 
     return (
@@ -49,8 +50,18 @@ export function PriceCard({ products }: { products: Products[] }) {
                                 ( Suitable for {product.suitableFor} )
                             </p>
                         </div>
-                        <button type="button">
-                            Get it now
+                        <button 
+                            className={
+                                unavailableProducts.includes(product.name) 
+                                    ? 'notAvailable' 
+                                    : ''
+                            }
+                            type="button"
+                        >
+                            {unavailableProducts.includes(product.name)
+                                ? 'Not available yet'
+                                : 'Get it now'
+                            }
                         </button>
                     </div>
                 </div>
