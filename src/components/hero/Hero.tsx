@@ -1,8 +1,9 @@
-import Lottie from 'lottie-react'
-import animationData from '../../assets/animationData.json'
-import { Accordion } from '../accordion/Accordion'
-import { ActionBtn } from '../action/actionBtn'
-// import { TbArrowBigRightLineFilled } from "react-icons/tb"
+// import Lottie from 'lottie-react'
+// import animationData from '../../assets/animationData.json'
+import { Tabs } from '../tabs/Tabs'
+import { ButtonAction } from '../button/Button'
+// import image from '../../assets/brage-command-files-example.png'
+import image from '../../assets/create-brage-command-files-example.png'
 import './hero.css'
 
 export function HeroSection() {
@@ -52,12 +53,15 @@ export function HeroSection() {
                     <p className='hero-description-title'>
                         BRAGE stands for Backend Revolutionary Framework Generation Engine
                     </p>
-                    <Accordion/>
+                    <Tabs/>
+                    <ButtonAction/>
                 </div>
-                <ActionBtn/>
-                <div className='animated-lottie'>
+                <div className="tv">
+                    <img src={image} alt="" />
+                </div>
+                {/* <div className='animated-lottie'>
                     <Lottie animationData={animationData}/>
-                </div>
+                </div> */}
             </div>
         </div>
     )

@@ -1,0 +1,82 @@
+.tabs-section {
+    width: 85%;
+    margin: 10px 0 10px 0;
+}
+
+.tabs-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 10px;
+}
+
+.tabs-section-header > div {
+    cursor: pointer;
+    background: rgba(77, 77, 79, 0.365);
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    opacity: 0.9;
+    transition: transform 0.3s;
+}
+
+.tabs-section-header > div:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.tabs-section-header > div::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 0;
+    width: 100%;
+    opacity: 1;
+    background: rgba(77, 77, 79, 1);
+}
+
+.tabs-section-header > div.selected {
+    cursor: pointer;
+    background: #4d4d4f;
+}
+
+.tabs-section-header > div.selected::before {
+    height: 1rem;
+}
+
+.tabs-section-body {
+    background: rgba(77, 77, 79, 0.488);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    height: 150px;
+    width: 100%;
+}
+
+.tabs-section-body > div {
+    position: absolute;
+    top: 0;
+    padding: 20px 10px 10px 0;
+    opacity: 0;
+}
+
+.tabs-section-body > div.selected {
+    opacity: 1;
+}
+
+.tabs-section-body-title {
+    margin: 5px 0 12px 0;
+    font-size: 1.4rem;
+    font-style: italic;
+    letter-spacing: 0.025rem;
+}
+
+.tabs-section-body-description {
+    font-size: 1.05rem;
+    opacity: 0.8;
+    letter-spacing: 0.02rem;
+    font-family: "Oswald", sans-serif;
+}
