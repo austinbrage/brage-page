@@ -1,3 +1,4 @@
+import morgan from 'morgan'
 import express, { json, Router }  from "express";
 import { APP, RESOURCES } from "./endpoints.js";
 import corsMiddleware from "../global/middlewares/cors.js";
@@ -10,6 +11,7 @@ const createApp = ({ pingPool }) => {
     const mainRouter = Router();
 
     app.use(json());
+    app.use(morgan('dev'));
     app.use(corsMiddleware());
     app.disable('x-powered-by');
 
