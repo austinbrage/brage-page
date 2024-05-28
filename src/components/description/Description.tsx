@@ -8,9 +8,9 @@ import './description.css'
 export function DescriptionPopUp() {
 
     const { currentFeat } = useContext(FeaturesContext)
-    const [boxState, setBoxState] = useState<'full' | 'shrink' | 'close'>('full')
+    const [boxState, setBoxState] = useState<'full' | 'shrink' | 'close'>('close')
 
-    let boxClasses
+    let boxClasses = 'close-description'
 
     if(boxState === 'full') boxClasses = 'full-description'
     else if(boxState === 'close') boxClasses = 'close-description'
