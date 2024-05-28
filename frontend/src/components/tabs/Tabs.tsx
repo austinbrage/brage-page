@@ -9,7 +9,7 @@ const TABS_INFO = [
     },
     {
         name: 'Why do I need it?',
-        title: 'Time your most valuable asset, let’s save it',
+        title: 'Time is your most valuable asset, let’s save it',
         description: 'Instead of manually writing all your endpoints with validations, responses, and routing for each query, let BRAGE generate all of that automatically just by reading your SQL tables and queries'
     },
     {
@@ -29,6 +29,7 @@ export function Tabs() {
             <div className="tabs-section-header">
                 {TABS_INFO.map((tab, index) => (
                     <div 
+                        key={tab.name}
                         onClick={() => setCurrentTabIndex(index)}
                         className={index === currentTabIndex ? 'selected' : ''}
                     >
@@ -40,6 +41,7 @@ export function Tabs() {
             <div className="tabs-section-body">
                 {TABS_INFO.map((tab, index) => (
                     <div
+                        key={tab.title}
                         className={index === currentTabIndex ? 'selected' : ''}
                     >
                         <div className="tabs-section-body-title">{tab.title}</div>

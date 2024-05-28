@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { EXAMPLES_ITEMS, type Items } from "../../data/examples"
 import "./Feat.css"
 
@@ -6,9 +6,6 @@ export function FeatSection() {
 
     const examplesMenuRef = useRef<HTMLUListElement>(null)
     const [currentItem, setCurrentItem] = useState<Items>(EXAMPLES_ITEMS[1])
-
-    useEffect(() => {
-    }, [])
 
     return (
         <section id="feat-section" className="feat-section">
@@ -24,6 +21,7 @@ export function FeatSection() {
                     
                     {EXAMPLES_ITEMS.map(example => (
                         <li 
+                            key={example.name}
                             className={currentItem === example ? 'selected' : ''}
                             onClick={() => setCurrentItem(example)}
                         >

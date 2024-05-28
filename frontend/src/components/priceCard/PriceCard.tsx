@@ -13,13 +13,16 @@ export function PriceCard({ products }: { products: Products[] }) {
         <div className="price-container">
 
             {products.map(product => (
-                <div className="price-container-card">
+                <div key={product.name} className="price-container-card">
                     <h5>{product.name}</h5>
                     <div>
                         <div className="price-container-card-feats">
 
                             {product.features.map((feature, index) => (
-                                <div className="price-container-card-feats-item">
+                                <div 
+                                    key={feature.description[0]}
+                                    className="price-container-card-feats-item"
+                                >
                                     {feature.isIncluded ? (
                                         <span className="check-mark">
                                             <IoCheckmarkCircle/>

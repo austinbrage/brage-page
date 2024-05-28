@@ -40,11 +40,13 @@ export function DescriptionPopUp() {
             <div className={`description-body ${boxClasses}`}>
                 <p>{currentFeat.title}</p>
                 {currentFeat.description.map((description) => (
-                    <p>{description}</p>
+                    <p key={description}>
+                        {description}
+                    </p>
                 ))}
                 <div className='description-body-images'>
                     {currentFeat.exampleImages.map(image => (
-                        <img src={image}/>
+                        <img key={image} src={image}/>
                     ))}
                 </div>
             </div>
