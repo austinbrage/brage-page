@@ -11,9 +11,12 @@ export function HeroSection() {
         <div id='hero-section' className='hero-section'>
             <div className='hero-container'>
                 <nav className='hero-navbar'>
-                    <h1 className='hero-navbar-title'>
+                    <a 
+                        href="#hero-section" 
+                        className='hero-navbar-title'
+                    >
                         BRAGE
-                    </h1>
+                    </a>
                     <div className='hero-navbar-link'>
                         <a href="#hero-section">
                             Home
