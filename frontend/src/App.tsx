@@ -1,22 +1,29 @@
-import { HeroSection } from './components/hero/Hero'
-import { FeatSection } from './components/feat/Feat'
-import { PriceSection } from './components/price/Price'
-import { ContactSection } from './components/contact/Contact'
-import { DescriptionPopUp } from './components/description/Description'
-import { FeaturesProvider } from './contexts/features'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Home } from './pages/Home/Home'
+import { SuccessPayment } from './pages/success/Success'
+import { FailPayment } from './pages/failure/Failure'
 import './App.css'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home/>
+  },
+  {
+    path: '/payment-success',
+    element: <SuccessPayment/>
+  },
+  {
+    path: '/payment-failure',
+    element: <FailPayment/>
+  },
+])
 
 function App() {
 
   return (
     <>
-      <HeroSection/>
-      <FeatSection/>
-      <FeaturesProvider>
-        <PriceSection/>
-        <DescriptionPopUp/>
-      </FeaturesProvider>
-      <ContactSection/>
+      <RouterProvider router={router}/>
     </>
   )
 }

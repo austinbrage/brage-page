@@ -1,0 +1,92 @@
+/* General container and layout styles */
+.failure-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.failure-container-card {
+    display: flex;
+    justify-content: center;
+}
+
+/* Specific message box styles */
+.message-box {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    padding: 45px;
+    text-align: center;
+    margin: 40px auto;
+    border-bottom: solid 4px transparent;
+}
+
+._failed { 
+    width: 50%;
+    border-bottom: solid 4px red !important; 
+}
+
+._failed span {
+    color:red !important; 
+    font-size: 2.5rem;
+}
+
+._failed h2 {
+    margin-bottom: 12px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+._failed p {
+    margin-bottom: 0px;
+    font-size: 18px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.backbtn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.backbtn-container p {
+    font-size: 1.2rem;
+    font-style: italic;
+    letter-spacing: 0.025rem;
+}
+
+.backbtn-container .backbtn {
+    color: rgba(255, 255, 255, 0.692);
+    padding: 10px 15px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.397);
+    background: rgba(255, 255, 255, 0.068);
+    overflow: hidden;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: 0.2s;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.backbtn-container .backbtn:hover {
+    border-color: rgba(255, 255, 255, 0.623);
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0.144),
+        rgba(20, 20, 20, 0.247),
+        rgba(20, 20, 20, 0.39)
+    );
+    box-shadow: 0 6px rgba(20, 20, 20, 0.623);
+    transform: translateY(-6px);
+}
+
+.backbtn-container a:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+ 
