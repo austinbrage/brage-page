@@ -58,25 +58,30 @@
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button:hover {
+.animated-button:hover,
+.hover-state {
   box-shadow: 0 0 0 12px transparent;
   color: #212121;
   border-radius: 12px;
 }
 
-.animated-button:hover .arr-1 {
+.animated-button:hover .arr-1,
+.hover-state .arr-1 {
   right: -25%;
 }
 
-.animated-button:hover .arr-2 {
+.animated-button:hover .arr-2,
+.hover-state .arr-2 {
   left: 16px;
 }
 
-.animated-button:hover .text {
+.animated-button:hover .text,
+.hover-state .text {
   transform: translateX(12px);
 }
 
-.animated-button:hover svg {
+.animated-button:hover svg,
+.hover-state svg {
   fill: #212121;
 }
 
@@ -85,7 +90,8 @@
   box-shadow: 0 0 0 4px var(--btn-color);
 }
 
-.animated-button:hover .circle {
+.animated-button:hover .circle,
+.hover-state .circle {
   width: 220px;
   height: 220px;
   opacity: 1;
