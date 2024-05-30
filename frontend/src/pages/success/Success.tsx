@@ -10,7 +10,7 @@ export function SuccessPayment() {
                         <FaCheckCircle/>
                     </span>
                     <h2>Your payment was successful</h2>
-                    <p>Thank you for your payment. we will <br/> be in contact with more details shortly</p>      
+                    <p>Thank you for your payment. feel free <br/> to contact us with any issue you encounter</p>      
                 </div>
             </div>
             <div className="download-container">
@@ -28,6 +28,43 @@ export function SuccessPayment() {
                         ></path>
                     </svg>
                 </a>
+            </div>
+            <div className="contact-container">
+                <div className="screen">
+                    <div className="screen-header">
+                        <div className="screen-header-left">
+                            <div className="screen-header-button close"></div>
+                            <div className="screen-header-button maximize"></div>
+                            <div className="screen-header-button minimize"></div>
+                        </div>
+                        <div className="screen-header-right">
+                            <div className="screen-header-ellipsis"></div>
+                            <div className="screen-header-ellipsis"></div>
+                            <div className="screen-header-ellipsis"></div>
+                        </div>
+                    </div>
+                    <div className="screen-body">
+                        <div className="screen-body-item-2">
+                            <div className="app-title">
+                                <span>CONTACT</span>
+                                <span>US</span>
+                            </div>
+                            <div className="app-contact">
+                                <div className="app-contact-email">
+                                    <p className="app-contact-email-address">
+                                        agustinbrage19@gmail.com
+                                    </p>
+                                </div>
+                                <div className="app-contact-number">
+                                    <p className="app-contact-number-address">
+                                        +54 11-2539-9150
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
