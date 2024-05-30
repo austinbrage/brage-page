@@ -5,39 +5,41 @@ import { BsArrowDownSquareFill } from "react-icons/bs"
 import { BsXSquareFill } from "react-icons/bs"
 import './description.css'
 
+type Classes = 'full' | 'shrink' | 'close'
+
 export function DescriptionPopUp() {
 
-    const { currentFeat } = useContext(FeaturesContext)
-    const [boxState, setBoxState] = useState<'full' | 'shrink' | 'close'>('close')
-
-    let boxClasses = 'close-description'
-
-    if(boxState === 'full') boxClasses = 'full-description'
-    else if(boxState === 'close') boxClasses = 'close-description'
-    else if(boxState === 'shrink') boxClasses = 'shrink-description'
+    const { isOpenModal, currentFeat } = useContext(FeaturesContext)
+    
+    const [modalClass, setModalClass] = useState<Classes>('close')
+    const handleModal = (newState: Classes) => setModalClass(newState)
 
     useEffect(() => {
-        setBoxState(prevState => prevState === 'close' ? 'shrink' : prevState)
-    }, [currentFeat])
+        if(isOpenModal) setModalClass(prevState => {
+            if(prevState === 'shrink') return 'shrink'
+            else if(prevState === 'full') return 'full'
+            else return 'shrink'
+        })
+    }, [isOpenModal])
 
     return (
         <div className="description-container">
             <div className="description-arrow-btns">
-                {boxState === 'shrink' && (
-                    <span onClick={() => setBoxState('full')}>
+                {modalClass === 'shrink' && (
+                    <span onClick={() => handleModal('full')}>
                         <BsArrowUpSquareFill/>
                     </span>
                 )}
-                {boxState === 'full' && (
-                    <span onClick={() => setBoxState('shrink')}>
+                {modalClass === 'full' && (
+                    <span onClick={() => handleModal('shrink')}>
                         <BsArrowDownSquareFill/>
                     </span>
                 )}
-                <span onClick={() => setBoxState('close')}>
+                <span onClick={() => handleModal('close')}>
                     <BsXSquareFill/>
                 </span>
             </div>
-            <div className={`description-body ${boxClasses}`}>
+            <div className={`description-body ${modalClass}-description`}>
                 <p>{currentFeat.title}</p>
                 {currentFeat.description.map((description) => (
                     <p key={description}>
