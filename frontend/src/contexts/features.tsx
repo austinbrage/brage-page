@@ -22,7 +22,7 @@ export function FeaturesProvider({ children }: { children: ReactNode }) {
     const [currentFeatIndex, setCurrentFeatIndex] = useState<number>(0)
 
     const updateCurrentFeat = (newFeat: number) => {
-        setIsOpenModal(true)
+        setIsOpenModal(prevState => !prevState)
         setCurrentFeatIndex(newFeat)
     }
 

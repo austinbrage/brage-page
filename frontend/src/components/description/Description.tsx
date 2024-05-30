@@ -15,7 +15,7 @@ export function DescriptionPopUp() {
     const handleModal = (newState: Classes) => setModalClass(newState)
 
     useEffect(() => {
-        if(isOpenModal) setModalClass(prevState => {
+        setModalClass(prevState => {
             if(prevState === 'shrink') return 'shrink'
             else if(prevState === 'full') return 'full'
             else return 'shrink'
