@@ -30,6 +30,12 @@ export const PORT = {
     test: process.env.TEST_PORT ?? 3002
 }
 
+export const HOST_URL = {
+    development: process.env.DEV_HOST_URL ?? 'http://localhost:3000',
+    production: process.env.PROD_HOST_URL ?? 'http://localhost:3000',
+    test: process.env.TEST_HOST_URL ?? 'http://localhost:3000'
+}
+
 export const bucketConfig: Record<string, BucketConfig> = {
     development: {
         bucketName: process.env.DEV_BUCKET_NAME ?? '',

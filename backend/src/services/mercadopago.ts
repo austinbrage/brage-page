@@ -1,5 +1,5 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago'
-import { MP_ACCESS_TOKEN } from '../utils/config'
+import { MP_ACCESS_TOKEN, HOST_URL } from '../utils/config'
 
 type Items = {
     id: string
@@ -11,13 +11,25 @@ type Items = {
 export class MercadoPagoService {
     private mpClient: MercadoPagoConfig
 
-    constructor() {
+    constructor(private payerName: string, private payerEmail: string) {
         this.mpClient = new MercadoPagoConfig({ accessToken: MP_ACCESS_TOKEN })
     }
 
     private async getPreferenceInitPoint(item: Items) {
         const preference = await new Preference(this.mpClient).create({
-            body: { items: [item] }
+            body: { 
+                items: [item], 
+                payer: { 
+                    name: this.payerName, 
+                    email: this.payerEmail 
+                },
+                back_urls: {
+                    success: `${HOST_URL}/products/javascript/confirm`,
+                    failure: `${HOST_URL}/products/javascript/failure`,
+                    pending: `${HOST_URL}/products/javascript/pending`
+                },
+                auto_return: 'approved'
+            }
         })
 
         return preference.sandbox_init_point
