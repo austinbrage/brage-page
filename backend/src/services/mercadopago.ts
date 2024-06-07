@@ -1,4 +1,4 @@
-import { MercadoPagoConfig, Preference } from 'mercadopago'
+import { MercadoPagoConfig, Preference, Payment } from 'mercadopago'
 import { MP_ACCESS_TOKEN, HOST_URL } from '../utils/config'
 
 type Items = {
@@ -33,6 +33,15 @@ export class MercadoPagoService {
         })
 
         return preference.sandbox_init_point
+    }
+
+    async getPayment(paymentId: number) {
+        const payment = await new Payment(this.mpClient).get({ id: paymentId })
+
+        return {
+            isApproved: payment.status === 'approved',
+            productId: payment.additional_info?.items?.[0]?.id
+        }
     }
 
     async buyBasicJS() {
