@@ -11,7 +11,7 @@ type Items = {
 export class MercadoPagoService {
     private mpClient: MercadoPagoConfig
 
-    constructor(private payerName: string, private payerEmail: string) {
+    constructor(private payerName?: string, private payerEmail?: string) {
         this.mpClient = new MercadoPagoConfig({ accessToken: MP_ACCESS_TOKEN })
     }
 
