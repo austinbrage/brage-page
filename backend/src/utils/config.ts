@@ -24,6 +24,8 @@ export type Environment = 'development' | 'production' | 'test'
 export const ENVIRONMENT = process.env.NODE_ENV ?? 'production'
 export const SIGNED_URL_EXPIRE = process.env.SIGNED_URL_EXPIRE ?? '3600'
 
+export const MP_ACCESS_TOKEN = process.env.MERCADOPAGO_ACCESS_TOKEN ?? ''
+
 export const PORT = {
     development: process.env.DEV_PORT ?? 3000,
     production: process.env.PROD_PORT ?? 3001,
