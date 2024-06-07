@@ -1,13 +1,13 @@
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3'
-import { bucketConfig, ENVIRONMENT, SIGNED_URL_EXPIRE, type Environment } from '../utils/config'
+import { bucketConfig, ENVIRONMENT, SIGNED_URL_EXPIRE } from '../utils/config'
 
 export class BucketService {
     private s3Client: S3Client
     private bucketName: string
 
     constructor() {
-        const currentBucketConfig = bucketConfig[ENVIRONMENT as Environment]
+        const currentBucketConfig = bucketConfig[ENVIRONMENT]
 
         this.bucketName = currentBucketConfig.bucketName
         this.s3Client = new S3Client(currentBucketConfig.s3ClientConfig)

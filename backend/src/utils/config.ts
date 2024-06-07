@@ -19,8 +19,6 @@ type BucketConfig = {
     s3ClientConfig: S3ClientConfig
 }
 
-export type Environment = 'development' | 'production' | 'test'
-
 export const ENVIRONMENT = process.env.NODE_ENV ?? 'production'
 export const SIGNED_URL_EXPIRE = process.env.SIGNED_URL_EXPIRE ?? '3600'
 
@@ -32,7 +30,7 @@ export const PORT = {
     test: process.env.TEST_PORT ?? 3002
 }
 
-export const bucketConfig: Record<Environment, BucketConfig> = {
+export const bucketConfig: Record<string, BucketConfig> = {
     development: {
         bucketName: process.env.DEV_BUCKET_NAME ?? '',
         s3ClientConfig: {
