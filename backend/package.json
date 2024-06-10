@@ -1,4 +1,8 @@
 {
+  "name": "brage-page-backend",
+  "version": "0.0.0",
+  "description": "BRAGE tool landing page",
+  "main": "index.js",
   "scripts": {
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts"
