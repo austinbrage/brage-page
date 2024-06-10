@@ -1,40 +1,53 @@
 import { Hono } from "hono"
-import { BucketService } from "../services/bucket"
-import { MercadoPagoService } from "../services/mercadopago"
+import { MercadopagoMiddlewares, type MercadopagoSecrets } from "../middlewares/mercadopago"
 
-export const brageJavascript = new Hono().basePath('/javascript')
+export const brageJavascript = new Hono<{ Variables: MercadopagoSecrets }>()
+brageJavascript.use(MercadopagoMiddlewares.initPreference)
 
-brageJavascript.post('/buy/basic', async (c) => {
-    const body = await c.req.json()
-
-    const { payerName, payerEmail } = body
-    const mercadopagoService = new MercadoPagoService(payerName, payerEmail)
+brageJavascript.post('/basic', async (c) => {
+    const mpPreferenceService = c.get('mpPreferenceService')
 
     try {
-        const initPoint = await mercadopagoService.buyBasicJS()
-        return c.json({ init_point: initPoint })
+        const response = await mpPreferenceService.buyBasicJS()
+        return c.json({ success: true, url: response })
     } catch(err) {
         console.error('Error at creating the mp preference', err)
         return c.text('Error at creating the mp preference', 500)
     }
 })
 
-brageJavascript.get('/confirm/basic', async (c) => {
-    const paymentId = c.req.query('payment_id')
-    if(!paymentId) return
-
-    const mercadopagoService = new MercadoPagoService()
+brageJavascript.post('/sql', async (c) => {
+    const mpPreferenceService = c.get('mpPreferenceService')
 
     try {
-        const payment = await mercadopagoService.getPayment(Number(paymentId))
-        if(!payment.isApproved || !payment.productId) return c.text('Payment not approved', 400)
-
-        const bucketService = new BucketService()
-        const productSignedUrl = bucketService.getFileUrl(payment.productId)
-
-        return c.json({ message: 'Payment approved', url: productSignedUrl })
+        const response = await mpPreferenceService.buySqlSaferJS()
+        return c.json({ success: true, url: response })
     } catch(err) {
-        console.error('Error at confirming payment', err)
-        return c.text('Error at confirming payment', 500)
+        console.error('Error at creating the mp preference', err)
+        return c.text('Error at creating the mp preference', 500)
+    }
+})
+
+brageJavascript.post('/db', async (c) => {
+    const mpPreferenceService = c.get('mpPreferenceService')
+
+    try {
+        const response = await mpPreferenceService.buyDbGenaratorJS()
+        return c.json({ success: true, url: response })
+    } catch(err) {
+        console.error('Error at creating the mp preference', err)
+        return c.text('Error at creating the mp preference', 500)
+    }
+})
+
+brageJavascript.post('/full', async (c) => {
+    const mpPreferenceService = c.get('mpPreferenceService')
+
+    try {
+        const response = await mpPreferenceService.buyFullGenaratorJS()
+        return c.json({ success: true, url: response })
+    } catch(err) {
+        console.error('Error at creating the mp preference', err)
+        return c.text('Error at creating the mp preference', 500)
     }
 })
