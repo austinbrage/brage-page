@@ -1,6 +1,6 @@
 import { BsXSquareFill } from "react-icons/bs"
 import { BiSolidPurchaseTag } from "react-icons/bi"
-import { useRef, useContext, useEffect } from "react"
+import { useRef, useContext, useEffect, FormEvent } from "react"
 import { PaymentContext } from "../../contexts/payments"
 import './payment.css'
 
@@ -11,6 +11,26 @@ export function PaymentPopUp() {
 
     const { isOpenPayment, currentProduct, updateOpenPayment } = useContext(PaymentContext)
     const handleClose = () => updateOpenPayment(false)
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+
+        const formData = new FormData(event.currentTarget)
+        const payerName = formData.get('name') as string
+        const payerEmail = formData.get('email') as string
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_HOST_URL}/product/javascript/basic`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ payerName, payerEmail })
+            })
+            const data = await response.json()
+            if(data.success) window.location.replace(data.url)
+        } catch(err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         if(isOpenPayment) {
@@ -38,7 +58,7 @@ export function PaymentPopUp() {
                     </span>
                 </div>
                 <div className="payment-container-body">
-                    <form className="payment-container-body-form">
+                    <form onSubmit={handleSubmit} className="payment-container-body-form">
                         <div>
                             <label htmlFor="name">Name</label>
                             <input type="text" name="name" id="name" placeholder="John Doe" required />
