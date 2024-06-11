@@ -17,7 +17,7 @@ export function ButtonAction() {
     useEffect(() => {
         setTimeout(() => {
             buttonRef.current?.classList.add('hover-state')
-        }, 1500)
+        }, 1000)
     }, [])
 
     return (
