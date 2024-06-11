@@ -8,7 +8,7 @@ import './priceCard.css'
 
 export function PriceCard({ products }: { products: Products[] }) {
 
-    const unavailableProducts = ['Basic (ts)', 'SQL safer (ts)', 'Database generator (ts)', 'Fullstack generator (ts)']
+    const unavailableProducts = ['Fullstack generator', 'Basic (ts)', 'SQL safer (ts)', 'Database generator (ts)', 'Fullstack generator (ts)']
     
     const { updateCurrentFeat } = useContext(FeaturesContext)
     const { updateOpenPayment, updateCurrentProduct } = useContext(PaymentContext)
