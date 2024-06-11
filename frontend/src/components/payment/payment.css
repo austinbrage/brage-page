@@ -115,7 +115,8 @@
 }
 
 .payment-container-body-form > div > input::placeholder {
-    color: #c8c4c4;
+    /* color: #c8c4c4; */
+    color: #c8c4c4c9;
 }
 
 .payment-container-body-btn {
