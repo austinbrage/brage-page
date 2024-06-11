@@ -21,7 +21,7 @@ const TABS_INFO = [
 
 export function Tabs() {
 
-    const [currentTabIndex, setCurrentTabIndex] = useState<number>(1)
+    const [currentTabIndex, setCurrentTabIndex] = useState<number>(2)
 
     return (
         <div className="tabs-section">
