@@ -1,4 +1,4 @@
-import modelFileEx from "../assets/model-file-example.png"
+import modelFileEx from "../assets/model-file-example-new.png"
 import queriesFileEx from "../assets/queries-file-example.png"
 import tableSqlFileEx from "../assets/table-sql-file-example.png"
 import queriesSqlFileEx from "../assets/queries-sql-file-example.png"
