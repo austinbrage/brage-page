@@ -16,6 +16,7 @@ export type Products = {
     name: string
     price: number
     suitableFor: string
+    endpoint: string
     features: Feats[]
 }
 
@@ -84,24 +85,28 @@ export const JAVASCRIPT_PRODUCTS: Products[] = [
         name: 'Basic',
         price: 94.55,
         suitableFor: 'beginners',
+        endpoint: '/javascript/basic',
         features: getFeatures(3)
     },
     {
         name: 'SQL safer',
         price: 124.55,
         suitableFor: 'freelancers',
+        endpoint: '/javascript/sql',
         features: getFeatures(4)
     },
     {
         name: 'Database generator',
         price: 154.55,
         suitableFor: 'freelancers',
+        endpoint: '/javascript/db',
         features: getFeatures(5)
     },
     {
         name: 'Fullstack generator',
         price: 184.55,
         suitableFor: 'companies',
+        endpoint: '/javascript/full',
         features: getFeatures(6)
     },
 ]
@@ -111,24 +116,28 @@ export const TYPESCRIPT_PRODUCTS: Products[] = [
         name: 'Basic (ts)',
         price: 114.55,
         suitableFor: 'beginners',
+        endpoint: '/typescript/basic',
         features: getFeatures(3)
     },
     {
         name: 'SQL safer (ts)',
         price: 144.55,
         suitableFor: 'freelancers',
+        endpoint: '/typescript/sql',
         features: getFeatures(4)
     },
     {
         name: 'Database generator (ts)',
         price: 174.55,
         suitableFor: 'freelancers',
+        endpoint: '/typescript/db',
         features: getFeatures(5)
     },
     {
         name: 'Fullstack generator (ts)',
         price: 204.55,
         suitableFor: 'companies',
+        endpoint: '/typescript/full',
         features: getFeatures(6)
     },
 ]

@@ -1,6 +1,6 @@
 import { BsXSquareFill } from "react-icons/bs"
 import { BiSolidPurchaseTag } from "react-icons/bi"
-import { useRef, useContext, useEffect, FormEvent } from "react"
+import { useRef, useState, useContext, useEffect, FormEvent } from "react"
 import { PaymentContext } from "../../contexts/payments"
 import './payment.css'
 
@@ -9,26 +9,31 @@ export function PaymentPopUp() {
     const overlayRef = useRef<HTMLDivElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const { isOpenPayment, currentProduct, updateOpenPayment } = useContext(PaymentContext)
     const handleClose = () => updateOpenPayment(false)
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        setIsLoading(true)
 
         const formData = new FormData(event.currentTarget)
         const payerName = formData.get('name') as string
         const payerEmail = formData.get('email') as string
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_HOST_URL}/product/javascript/basic`, {
+            const response = await fetch(`${import.meta.env.VITE_API_HOST_URL}/product${currentProduct.endpoint}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ payerName, payerEmail })
             })
             const data = await response.json()
-            if(data.success) window.location.replace(data.url)
+            if(data.success) window.location.assign(data.url)
         } catch(err) {
             console.log(err)
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -69,9 +74,10 @@ export function PaymentPopUp() {
                         </div>
                         <button 
                             type="submit" 
+                            disabled={isLoading}
                             className="payment-container-body-btn"
                         >
-                            Get package
+                            {isLoading ? 'Processing' : 'Get package'}
                         </button>
                     </form>
                     <div className="payment-container-body-product">
@@ -79,7 +85,7 @@ export function PaymentPopUp() {
                         <span>
                             <BiSolidPurchaseTag/>
                         </span>
-                        <p>$ {currentProduct.price}</p>
+                        <p>$USD {currentProduct.price}</p>
                     </div>
                 </div>
             </div>

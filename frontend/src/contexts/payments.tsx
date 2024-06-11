@@ -1,5 +1,5 @@
 import { useState, createContext, type ReactNode } from 'react'
-import { JAVASCRIPT_PRODUCTS, type Products } from '../data/products'
+import { type Products } from '../data/products'
 
 type Context = {
     isOpenPayment: boolean
@@ -8,10 +8,18 @@ type Context = {
     updateCurrentProduct: (newProduct: Products) => void
 }
 
+const FREE_PRODUCT: Products = {
+    name: 'Basic Free',
+    price: 0,
+    suitableFor: 'beginers',
+    endpoint: '',
+    features: []
+}
+
 const initialContext: Context = {
     isOpenPayment: false,
     updateOpenPayment: () => {},
-    currentProduct: JAVASCRIPT_PRODUCTS[0],
+    currentProduct: FREE_PRODUCT,
     updateCurrentProduct: () => {}
 }
 
@@ -20,7 +28,7 @@ export const PaymentContext = createContext(initialContext)
 export function PaymentProvider({ children }: { children: ReactNode }) {
 
     const [isOpenPayment, setIsOpenPayment] = useState<boolean>(false)
-    const [currentProduct, setCurrentProduct] = useState<Products>(JAVASCRIPT_PRODUCTS[0])
+    const [currentProduct, setCurrentProduct] = useState<Products>(FREE_PRODUCT)
 
     const updateOpenPayment = (newState: boolean) => setIsOpenPayment(newState) 
     const updateCurrentProduct = (newProduct: Products) => setCurrentProduct(newProduct) 
