@@ -5,6 +5,10 @@ import { type Next, type Context } from "hono"
 type MP_SECRETS = {
     MERCADOPAGO_ACCESS_TOKEN: string
 }
+    
+type RESEND_SECRETS = {
+    RESEND_API_KEY: string
+}
 
 type R2_SECRETS = { 
     BUCKET_NAME: string
@@ -16,6 +20,7 @@ type R2_SECRETS = {
 export type EnvironmentSecrets = {
     mpAccessToken: string
     bucketName: string
+    resendApiKey: string
     bucketConfig: S3ClientConfig
 }
 
@@ -25,6 +30,14 @@ export class EnvironmentMiddlewares {
         const { MERCADOPAGO_ACCESS_TOKEN } = env<MP_SECRETS>(c)
 
         c.set('mpAccessToken', MERCADOPAGO_ACCESS_TOKEN)
+        
+        await next()
+    }
+
+    static async resendSecrets(c: Context, next: Next) {
+        const { RESEND_API_KEY } = env<RESEND_SECRETS>(c)
+
+        c.set('resendApiKey', RESEND_API_KEY)
         
         await next()
     }

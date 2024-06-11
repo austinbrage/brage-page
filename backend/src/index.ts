@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { payments } from './routes/payments'
+import { emailContact } from './routes/email.contact'
 import { brageJavascript } from './routes/brage.javascript'
 
 const app = new Hono().basePath('/product')
@@ -19,6 +20,7 @@ app.get('/', (c) => {
 })
 
 app.route('/payment', payments)
+app.route('/contact', emailContact)
 app.route('/javascript', brageJavascript)
 
 export default app

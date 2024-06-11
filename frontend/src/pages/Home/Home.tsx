@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner'
 import { HeroSection } from '../../components/hero/Hero'
 import { FeatSection } from '../../components/feat/Feat'
 import { PriceSection } from '../../components/price/Price'
@@ -20,6 +21,11 @@ export function Home() {
                 <DescriptionPopUp/>
             </FeaturesProvider>
             <ContactSection/>
+            <Toaster 
+                richColors 
+                theme="dark"
+                toastOptions={{ style: { fontSize: '1rem' } }}
+            />
         </PaymentProvider>
     )
 }
