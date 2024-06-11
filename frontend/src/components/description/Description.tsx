@@ -15,11 +15,11 @@ export function DescriptionPopUp() {
     const handleModal = (newState: Classes) => setModalClass(newState)
 
     useEffect(() => {
-        setModalClass(prevState => {
-            if(prevState === 'shrink') return 'shrink'
-            else if(prevState === 'full') return 'full'
-            else return 'shrink'
-        })
+        // setModalClass(prevState => {
+        //     if(prevState === 'shrink') return 'shrink'
+        //     else if(prevState === 'full') return 'full'
+        //     else return 'shrink'
+        // })
     }, [isOpenModal])
 
     return (
@@ -47,9 +47,9 @@ export function DescriptionPopUp() {
                     </p>
                 ))}
                 <div className='description-body-images'>
-                    {currentFeat.exampleImages.map(image => (
+                    {/* {currentFeat.exampleImages.map(image => (
                         <img key={image} src={image}/>
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>
