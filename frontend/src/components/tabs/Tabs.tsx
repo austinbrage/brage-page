@@ -13,7 +13,7 @@ const TABS_INFO = [
         description: 'Instead of manually writing all your endpoints with validations, responses, and routing for each query, let BRAGE generate all of that automatically just by reading your SQL tables and queries'
     },
     {
-        name: 'What do I use it?',
+        name: 'How do I use it?',
         title: 'NodeJS package with a complete CLI',
         description: 'Download it, install the dependencies with pnpm, install it globally on your machine, and run the basic commands "create-brage-js" and "brage-js" to generate the template and routes based on the SQL files'
     },
