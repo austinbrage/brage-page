@@ -8,10 +8,14 @@ type Items = {
 }
 
 type PaymentResponse = { 
-    status: string, 
+    id: number
+    amount: string
+    status: string
+    metadata: object
+    date_created: string 
     additional_info: { 
         items: Array<{
-            id: string, 
+            id: string
             title: string 
         }> 
     } 
@@ -35,12 +39,22 @@ export class MpPaymentService {
 
         if (!response.ok) {
             const errorText = await response.text()
-            throw new Error(`At creating payment details [${response.statusText}, ${errorText}]`)
+            throw new Error(errorText)
         }
 
         const data = await response.json() as PaymentResponse
 
+        const buyerData = {
+            id: data.id,
+            status: data.status,
+            amount: data.amount,
+            metadata: data.metadata,
+            data_created: data.date_created,
+            item_info: data.additional_info.items[0]
+        }
+
         return {
+            buyerData,
             isApproved: data.status === 'approved',
             productId: data.additional_info?.items?.[0]?.id,
             productTitle: data.additional_info?.items?.[0]?.title
@@ -63,6 +77,10 @@ export class MpPreferenceService {
             payer: { 
                 name: this.payerName, 
                 email: this.payerEmail 
+            },
+            metadata: { 
+                payerName: this.payerName, 
+                payerEmail: this.payerEmail 
             },
             back_urls: {
                 success: `${this.frontHostUrl}/payment-success`,
