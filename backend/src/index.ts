@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { payments } from './routes/payments'
+import { keyValues } from './routes/key.values'
 import { emailContact } from './routes/email.contact'
 import { brageJavascript } from './routes/brage.javascript'
 
@@ -20,6 +21,7 @@ app.get('/', (c) => {
 })
 
 app.route('/payment', payments)
+app.route('/keyvalues', keyValues)
 app.route('/contact', emailContact)
 app.route('/javascript', brageJavascript)
 
