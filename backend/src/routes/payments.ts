@@ -55,8 +55,6 @@ payments.get('/confirm', async (c) => {
                 subject: 'Bragetools success payment',
                 html: JSON.stringify(response.buyerData, null, 2)
             })
-        }catch (emailError) {
-            console.error(`Failed to send email: ${emailError}`)
         } finally {
             return c.json({ 
                 success: true, 
