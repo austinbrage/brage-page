@@ -18,11 +18,11 @@ export function HeroSection() {
                         BRAGE
                     </a>
                     <div className='hero-navbar-link'>
-                        <a href="#hero-section">
-                            Home
+                        <a href="https://brage-docs.pages.dev" target='_blank'>
+                            Docs
                         </a>
                         <a href="#feat-section">
-                            Feature
+                            Features
                         </a>
                         <a href="#price-section">
                             Pricing
