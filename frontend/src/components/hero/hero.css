@@ -188,6 +188,7 @@
 
 /* Tv effect */
 .tv {
+  display: block;
   position: absolute;
   right: 5rem;
   bottom: 5rem;
@@ -246,4 +247,18 @@
   background-clip: text;
   -webkit-background-clip: text;
   transform: translateX(-0.02em);
+}
+
+@media(max-width: 1250px) {
+    .tv {
+        right: 3rem;
+        width: 280px;
+        height: 320px;
+    } 
+}
+
+@media(max-width: 1050px) {
+    .tv {
+        display: none;
+    } 
 }
