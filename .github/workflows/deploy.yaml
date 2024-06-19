@@ -32,10 +32,10 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        uses: pnpm install
+        run: pnpm install
 
       - name: Install wrangler
-        uses: pnpm install -g wrangler
+        run: pnpm install -g wrangler
 
       - name: Set up secrets
         run: | 
