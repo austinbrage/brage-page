@@ -14,8 +14,8 @@ jobs:
       CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
 
     steps:
-      - name: Cancel previous redundant builds
-        uses: styfle/cancel-workflow-actions@0.9.1
+      - name: Cancel previous redundant deployments
+        uses: styfle/cancel-workflow-action@0.9.1
         with: 
           access_token: ${{ github.token }}
 
