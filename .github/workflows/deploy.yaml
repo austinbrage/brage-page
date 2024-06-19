@@ -38,4 +38,4 @@ jobs:
 
       - name: Deploy to workers
         working-directory: backend
-        run: npx wrangler publish
+        run: npx wrangler deploy --minify src/index.ts
