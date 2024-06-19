@@ -1,0 +1,51 @@
+Name: Deploy Bragetools backend to Cloudflare Workers
+
+on: 
+  workflow_dispatch:
+  push: 
+    branches: ['main']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    env:
+      CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+      CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+
+    steps:
+      - name: Cancel previous redundant builds
+        uses: styfle/cancel-workflow-actions@0.9.1
+        with: 
+          access_token: ${{ github.token }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/actions-setup@v4
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        uses: pnpm install
+
+      - name: Install wrangler
+        uses: pnpm install -g wrangler
+
+      - name: Set up secrets
+        run: | 
+          echo "${{ secrets.BUCKET_NAME }}" | wrangler secret put BUCKET_NAME
+          echo "${{ secrets.FRONT_HOST_URL }}" | wrangler secret put FRONT_HOST_URL
+          echo "${{ secrets.ACCESS_KEY }}" | wrangler secret put ACCESS_KEY
+          echo "${{ secrets.SECRET_ACCESS_KEY }}" | wrangler secret put SECRET_ACCESS_KEY
+          echo "${{ secrets.CLOUDFLARE_ENDPOINT }}" | wrangler secret put CLOUDFLARE_ENDPOINT
+          echo "${{ secrets.MERCADOPAGO_ACCESS_TOKEN }}" | wrangler secret put MERCADOPAGO_ACCESS_TOKEN
+
+      - name: Deploy to workers
+        working-directory: backend
+        run: wrangler publish
