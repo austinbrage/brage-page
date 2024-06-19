@@ -1,4 +1,4 @@
-Name: Deploy Bragetools backend to Cloudflare Workers
+name: Deploy Bragetools backend to Cloudflare Workers
 
 on: 
   workflow_dispatch:
