@@ -37,9 +37,12 @@ jobs:
         working-directory: backend
         run: pnpm install
 
+      - name: Install wrangler cli
+        run: pnpm install -g wrangler
+
       - name: Deploy to workers
         working-directory: backend
-        run: npx wrangler deploy --minify src/index.ts
+        run: wrangler deploy --minify src/index.ts
       
       - name: Set up secrets
         working-directory: backend
