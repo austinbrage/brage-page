@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
 
     steps:
       - name: Cancel previous redundant deployments
@@ -18,9 +22,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        working-directory: backend
+        run: pnpm install
+
       - name: Deploy to workers
         working-directory: backend
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+        run: npx wrangler deploy --minify src/index.ts
+      
+      - name: Set up secrets
+        working-directory: backend
+        run: | 
+          echo "${{ secrets.BUCKET_NAME }}" | wrangler secret put BUCKET_NAME
+          echo "${{ secrets.FRONT_HOST_URL }}" | wrangler secret put FRONT_HOST_URL
+          echo "${{ secrets.ACCESS_KEY }}" | wrangler secret put ACCESS_KEY
+          echo "${{ secrets.SECRET_ACCESS_KEY }}" | wrangler secret put SECRET_ACCESS_KEY
+          echo "${{ secrets.CLOUDFLARE_ENDPOINT }}" | wrangler secret put CLOUDFLARE_ENDPOINT
+          echo "${{ secrets.MERCADOPAGO_ACCESS_TOKEN }}" | wrangler secret put MERCADOPAGO_ACCESS_TOKEN
