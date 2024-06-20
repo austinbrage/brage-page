@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { Resend } from "Resend"
+import { Resend } from "resend"
 import { BucketService } from "../services/bucket"
 import { MpPaymentService } from "../services/mercadopago"
 import { EnvironmentMiddlewares, type EnvironmentSecrets } from "../middlewares/environments"

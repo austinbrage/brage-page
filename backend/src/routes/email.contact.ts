@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { Resend } from "Resend"
+import { Resend } from "resend"
 import { EnvironmentMiddlewares, type EnvironmentSecrets } from "../middlewares/environments"
 
 export const emailContact = new Hono<{ Variables: Pick<EnvironmentSecrets, "resendApiKey"> }>()
