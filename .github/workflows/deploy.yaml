@@ -49,6 +49,7 @@ jobs:
         run: | 
           echo "${{ secrets.BUCKET_NAME }}" | wrangler secret put BUCKET_NAME
           echo "${{ secrets.FRONT_HOST_URL }}" | wrangler secret put FRONT_HOST_URL
+          echo "${{ secrets.RESEND_API_KEY }}" | wrangler secret put RESEND_API_KEY
           echo "${{ secrets.ACCESS_KEY }}" | wrangler secret put ACCESS_KEY
           echo "${{ secrets.SECRET_ACCESS_KEY }}" | wrangler secret put SECRET_ACCESS_KEY
           echo "${{ secrets.CLOUDFLARE_ENDPOINT }}" | wrangler secret put CLOUDFLARE_ENDPOINT
