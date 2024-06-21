@@ -54,7 +54,7 @@ export function HeroSection() {
                 </div>
                 <div className='hero-description'>
                     <p className='hero-description-title'>
-                        BRAGE stands for Backend Revolutionary Framework Generation Engine
+                        BRAGE stands for Backend Revolutionary Architecture Generation Engine
                     </p>
                     <Tabs/>
                     <ButtonAction/>
