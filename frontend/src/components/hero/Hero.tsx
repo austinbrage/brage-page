@@ -3,6 +3,7 @@
 import { Tabs } from '../tabs/Tabs'
 import { ButtonAction } from '../button/Button'
 // import image from '../../assets/brage-command-files-example.png'
+import imageLogo from '/brain-gear.png'
 import image from '../../assets/create-brage-command-files-example.png'
 import './hero.css'
 
@@ -15,6 +16,7 @@ export function HeroSection() {
                         href="#hero-section" 
                         className='hero-navbar-title'
                     >
+                        <img src={imageLogo} alt="Brage logo" />
                         BRAGE
                     </a>
                     <div className='hero-navbar-link'>
@@ -25,7 +27,7 @@ export function HeroSection() {
                             Features
                         </a>
                         <a href="#price-section">
-                            Pricing
+                            Products
                         </a>
                         <a href="#contact-section">
                             Support

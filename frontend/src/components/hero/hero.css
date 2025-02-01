@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('https://th.bing.com/th/id/OIP.GLT1jrP2-k_vW1HzV7uWiAHaEK?rs=1&pid=ImgDetMain');
+    /* background-image: url('https://webcontainers.io/img/0001-8-2-dk-bluedk.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #191d20;
+    background-color: rgba(25, 29, 32, 0.584);
     /* background-image: url('https://th.bing.com/th/id/R.c9c905906ed5f6b395dec5514f75b7cb?rik=cI0aaM39DTF6dA&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fHd-Laptop-wallpapers.jpg&ehk=fdAGF7dNdtQMtY9E7s8hArE8z60Wx9Vbg4oAC9aYUcs%3d&risl=&pid=ImgRaw&r=0'); */
     background-size: cover;
     background-position: center;
@@ -107,7 +107,11 @@
 }
 
 .hero-navbar .hero-navbar-title {
-    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 26px;
     font-weight: bold;
     color: #B0BEC5;
     line-height: 1.1;
@@ -115,6 +119,11 @@
     text-decoration: none;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
+}
+
+.hero-navbar .hero-navbar-title > img {
+    width: 2rem;
+    height: 2rem;
 }
 
 .hero-description {
