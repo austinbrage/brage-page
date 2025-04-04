@@ -2,6 +2,7 @@ import { BsXSquareFill } from "react-icons/bs"
 import { BiSolidPurchaseTag } from "react-icons/bi"
 import { useRef, useState, useContext, useEffect, FormEvent } from "react"
 import { PaymentContext } from "../../contexts/payments"
+import { Terminal } from "../terminal/Terminal"
 import './payment.css'
 
 export function PaymentPopUp() {
@@ -46,6 +47,48 @@ export function PaymentPopUp() {
             containerRef?.current?.classList.remove('open-payment')
         }
     }, [isOpenPayment])
+
+    if(currentProduct.price.includes('Free')) return (
+        <>
+            <div ref={overlayRef} className="payment-overlay"></div>
+            <div ref={containerRef} className="payment-container">
+                <div className="payment-container-header">
+                    <h4 className="payment-container-header-title">
+                        Purchase card
+                    </h4>
+                    <span 
+                        onClick={() => handleClose()} 
+                        className="payment-container-header-close"
+                    >
+                        <BsXSquareFill/>
+                    </span>
+                </div>
+                <div className="payment-container-body">
+                    <Terminal/>
+                    <form className="payment-container-body-form">
+                        <a
+                            href='#price-section'
+                            className="payment-container-body-btn"
+                            onClick={() => {
+                                handleClose()
+                                window.open('https://github.com/austinbrage/brage')
+                            }}
+                            style={{ bottom: '-0.75rem' }}
+                        >
+                            See repo
+                        </a>
+                    </form>
+                    <div className="payment-container-body-product">
+                        <p>{currentProduct.name} version software</p>
+                        <span>
+                            <BiSolidPurchaseTag/>
+                        </span>
+                        <p>{currentProduct.price}</p>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 
     return (
         <>

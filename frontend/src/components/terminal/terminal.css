@@ -1,0 +1,114 @@
+.terminal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    width: 550px;
+    height: 100px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: #2d2d2d;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.btn.red { background-color: #ff5f56; }
+.btn.yellow { background-color: #ffbd2e; }
+.btn.green { background-color: #27c93f; }
+
+.terminal-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 93%;
+    padding: 20px;
+    color: #00ff7f;
+    font-size: 16px;
+    white-space: pre;
+}
+
+.command {
+    font-size: 1.05rem;
+    letter-spacing: 0.05rem;
+    color:rgba(0, 255, 128, 0.7);
+}
+
+.copy-button {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    color: #d1d5db;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.625rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background-color: #374151;
+    border-color: transparent;
+}
+
+.copy-button:focus,
+.copy-button:focus-visible {
+    outline: none !important;
+}
+
+.copy-button .default-message, .success-message {
+    display: flex;
+    align-items: center;
+}
+
+.copy-button .icon {
+    width: 0.75rem; 
+    height: 0.75rem; 
+    margin-right: 0.375rem;
+}
+
+.copy-button .success-icon {
+    color: #3b82f6;
+}
+
+.copy-button .text {
+    font-size: 0.75rem; 
+    font-weight: 600; 
+}
+
+.copy-button .success-text {
+    color: #3b82f6;
+}
+
+.terminal-toast {
+    width: 10rem;
+    padding: 3px 10px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-left: 3rem;
+    background: rgb(184, 188, 178);
+    border-color: rgb(184, 188, 178);
+    color: #222;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+}
