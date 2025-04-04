@@ -56,9 +56,9 @@
   letter-spacing: 0.05rem;
 }
 
-.price-container-card-feats-item > p {
+/* .price-container-card-feats-item > p {
   cursor: pointer;
-}
+} */
 
 .price-container-card-feats-item:nth-child(3) > *,
 .price-container-card-feats-item:nth-child(4) > * {

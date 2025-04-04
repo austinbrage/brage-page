@@ -10,10 +10,11 @@ type Context = {
 
 const FREE_PRODUCT: Products = {
     name: 'Basic Free',
-    price: 0,
+    price: '0',
     suitableFor: 'beginers',
     endpoint: '',
-    features: []
+    features: [],
+    isAvailable: true
 }
 
 const initialContext: Context = {

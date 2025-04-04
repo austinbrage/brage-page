@@ -20,10 +20,11 @@ export type Feats = {
 
 export type Products = {
     name: string
-    price: number
+    price: string
     suitableFor: string
     endpoint: string
     features: Feats[]
+    isAvailable: boolean
 }
 
 export const SHARED_FEATURES: Feats[] = [
@@ -101,61 +102,69 @@ function getFeatures(count: number) {
 export const JAVASCRIPT_PRODUCTS: Products[] = [
     {
         name: 'Basic',
-        price: 94.55,
+        price: 'Free product',
         suitableFor: 'beginners',
         endpoint: '/javascript/basic',
-        features: getFeatures(3)
+        features: getFeatures(3),
+        isAvailable: true
     },
     {
         name: 'SQL safer',
-        price: 124.55,
+        price: '',
         suitableFor: 'freelancers',
         endpoint: '/javascript/sql',
-        features: getFeatures(4)
+        features: getFeatures(4),
+        isAvailable: false
     },
     {
         name: 'Database generator',
-        price: 154.55,
+        price: '',
         suitableFor: 'freelancers',
         endpoint: '/javascript/db',
-        features: getFeatures(5)
+        features: getFeatures(5),
+        isAvailable: false
     },
     {
         name: 'Fullstack generator',
-        price: 184.55,
+        price: '',
         suitableFor: 'companies',
         endpoint: '/javascript/full',
-        features: getFeatures(6)
+        features: getFeatures(6),
+        isAvailable: false
     },
 ]
 
 export const TYPESCRIPT_PRODUCTS: Products[] = [
     {
         name: 'Basic (ts)',
-        price: 114.55,
+        price: '',
         suitableFor: 'beginners',
         endpoint: '/typescript/basic',
-        features: getFeatures(3)
+        features: getFeatures(3),
+        isAvailable: false
     },
     {
         name: 'SQL safer (ts)',
-        price: 144.55,
+        price: '',
         suitableFor: 'freelancers',
         endpoint: '/typescript/sql',
-        features: getFeatures(4)
+        features: getFeatures(4),
+        isAvailable: false
     },
     {
         name: 'Database generator (ts)',
-        price: 174.55,
+        price: '',
         suitableFor: 'freelancers',
         endpoint: '/typescript/db',
-        features: getFeatures(5)
+        features: getFeatures(5),
+        isAvailable: false
     },
     {
         name: 'Fullstack generator (ts)',
-        price: 204.55,
+        price: '',
         suitableFor: 'companies',
         endpoint: '/typescript/full',
-        features: getFeatures(6)
+        features: getFeatures(6),
+        isAvailable: false
     },
 ]

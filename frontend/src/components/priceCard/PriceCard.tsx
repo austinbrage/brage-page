@@ -8,8 +8,6 @@ import './priceCard.css'
 
 export function PriceCard({ products }: { products: Products[] }) {
 
-    const unavailableProducts = ['Fullstack generator', 'Basic (ts)', 'SQL safer (ts)', 'Database generator (ts)', 'Fullstack generator (ts)']
-    
     const { updateCurrentFeat } = useContext(FeaturesContext)
     const { updateOpenPayment, updateCurrentProduct } = useContext(PaymentContext)
 
@@ -52,7 +50,16 @@ export function PriceCard({ products }: { products: Products[] }) {
                     <div className="price-container-card-action">
                         <div>
                             <p className="price-container-card-action-number">
-                                $ {product.price}
+                                {
+                                    product.price.includes('Free') || product.price === '' 
+                                        ? '' 
+                                        : '$'
+                                } 
+                                {
+                                    product.price === ''
+                                        ? 'Paid product'
+                                        : product.price
+                                }
                             </p>
                             <p className="price-container-card-action-description">
                                 ( Suitable for {product.suitableFor} )
@@ -61,15 +68,15 @@ export function PriceCard({ products }: { products: Products[] }) {
                         <button 
                             onClick={() => handleOpenPayment(product)}
                             className={
-                                unavailableProducts.includes(product.name) 
-                                    ? 'notAvailable' 
-                                    : ''
+                                product.isAvailable 
+                                    ? '' 
+                                    : 'notAvailable'
                             }
                             type="button"
                         >
-                            {unavailableProducts.includes(product.name)
-                                ? 'Not available yet'
-                                : 'Get it now'
+                            {product.isAvailable
+                                ? 'Get it now'
+                                : 'Not available yet'
                             }
                         </button>
                     </div>
