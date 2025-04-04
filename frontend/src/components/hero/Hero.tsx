@@ -20,7 +20,7 @@ export function HeroSection() {
                         BRAGE
                     </a>
                     <div className='hero-navbar-link'>
-                        <a href="https://brage-docs.pages.dev" target='_blank'>
+                        <a href="https://docs.brage.app" target='_blank'>
                             Docs
                         </a>
                         <a href="#feat-section">
