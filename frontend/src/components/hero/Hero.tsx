@@ -64,6 +64,14 @@ export function HeroSection() {
                 <div className="tv">
                     <img src={image} alt="" />
                 </div>
+                <a 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className='youtube-link'
+                    href="https://www.youtube.com/watch?v=Hmnm-Mhw134" 
+                >
+                    Watch overview
+                </a>
                 {/* <div className='animated-lottie'>
                     <Lottie animationData={animationData}/>
                 </div> */}
